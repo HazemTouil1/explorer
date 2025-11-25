@@ -414,63 +414,85 @@ const AddressDetail = () => {
 
         {/* Tabs Navigation */}
         <div className="card mb-3 dark:bg-black dark:border-gray-800">
-          <div className="p-0">
-            <ul className="flex border-b border-gray-200 dark:border-gray-700">
-              <li className="flex-1">
-                <button 
-                  onClick={() => setActiveTab('transactions')}
-                  className={`w-full px-4 py-3 text-sm font-medium transition-colors ${
-                    activeTab === 'transactions'
-                      ? 'text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400 bg-primary-50 dark:bg-primary-900/30'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400'
-                  }`}
-                >
-                  <FileText className="w-4 h-4 inline mr-1" />
-                  Transactions
-                </button>
-              </li>
-              <li className="flex-1">
-                <button 
-                  onClick={() => setActiveTab('token-transfers')}
-                  className={`w-full px-4 py-3 text-sm font-medium transition-colors ${
-                    activeTab === 'token-transfers'
-                      ? 'text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400 bg-primary-50 dark:bg-primary-900/30'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400'
-                  }`}
-                >
-                  <Coins className="w-4 h-4 inline mr-1" />
-                  Token Transfers
-                </button>
-              </li>
-              <li className="flex-1">
-                <button 
-                  onClick={() => setActiveTab('nft-transfers')}
-                  className={`w-full px-4 py-3 text-sm font-medium transition-colors ${
-                    activeTab === 'nft-transfers'
-                      ? 'text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400 bg-primary-50 dark:bg-primary-900/30'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400'
-                  }`}
-                >
-                  <Shield className="w-4 h-4 inline mr-1" />
-                  NFT Transfers
-                </button>
-              </li>
-              <li className="flex-1">
-                <button 
-                  onClick={() => setActiveTab('analytics')}
-                  className={`w-full px-4 py-3 text-sm font-medium transition-colors ${
-                    activeTab === 'analytics'
-                      ? 'text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400 bg-primary-50 dark:bg-primary-900/30'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400'
-                  }`}
-                >
-                  <TrendingUp className="w-4 h-4 inline mr-1" />
-                  Analytics
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
+  <div className="p-0">
+    <ul className="flex flex-wrap border-b border-gray-200 dark:border-gray-700">
+
+      {/* Transactions */}
+      <li className="flex-1">
+        <button 
+          onClick={() => setActiveTab('transactions')}
+          className={`w-full px-2 sm:px-4 py-2 sm:py-3 
+            text-xs sm:text-sm font-medium transition-colors 
+            flex items-center justify-center gap-1
+            ${
+              activeTab === 'transactions'
+                ? 'text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400 bg-primary-50 dark:bg-primary-900/30'
+                : 'text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400'
+            }`}
+        >
+          <FileText className="w-3 h-3 sm:w-4 sm:h-4" />
+          <span className="truncate">Transactions</span>
+        </button>
+      </li>
+
+      {/* Token Transfers */}
+      <li className="flex-1">
+        <button 
+          onClick={() => setActiveTab('token-transfers')}
+          className={`w-full px-2 sm:px-4 py-2 sm:py-3 
+            text-xs sm:text-sm font-medium transition-colors 
+            flex items-center justify-center gap-1
+            ${
+              activeTab === 'token-transfers'
+                ? 'text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400 bg-primary-50 dark:bg-primary-900/30'
+                : 'text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400'
+            }`}
+        >
+          <Coins className="w-3 h-3 sm:w-4 sm:h-4" />
+          <span className="truncate">Token Transfers</span>
+        </button>
+      </li>
+
+      {/* NFT Transfers */}
+      <li className="flex-1">
+        <button 
+          onClick={() => setActiveTab('nft-transfers')}
+          className={`w-full px-2 sm:px-4 py-2 sm:py-3 
+            text-xs sm:text-sm font-medium transition-colors 
+            flex items-center justify-center gap-1
+            ${
+              activeTab === 'nft-transfers'
+                ? 'text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400 bg-primary-50 dark:bg-primary-900/30'
+                : 'text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400'
+            }`}
+        >
+          <Shield className="w-3 h-3 sm:w-4 sm:h-4" />
+          <span className="truncate">NFT Transfers</span>
+        </button>
+      </li>
+
+      {/* Analytics */}
+      <li className="flex-1">
+        <button 
+          onClick={() => setActiveTab('analytics')}
+          className={`w-full px-2 sm:px-4 py-2 sm:py-3 
+            text-xs sm:text-sm font-medium transition-colors 
+            flex items-center justify-center gap-1
+            ${
+              activeTab === 'analytics'
+                ? 'text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400 bg-primary-50 dark:bg-primary-900/30'
+                : 'text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400'
+            }`}
+        >
+          <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4" />
+          <span className="truncate">Analytics</span>
+        </button>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
 
         {/* Tab Content */}
         <div className="card dark:bg-black dark:border-gray-800">
