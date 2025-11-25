@@ -95,11 +95,13 @@ const LatestBlocks = () => {
                       </p>
                     </div>
                     
-                    <div className="text-right">
-                      <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-sm font-medium rounded">
+                    <div className="text-right sm:text-right w-full sm:w-auto mt-2 sm:mt-0">
+                      <span className="inline-block px-2 sm:px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-xs sm:text-sm font-medium rounded truncate max-w-full sm:max-w-none">
                         {block.transactionCount} txns
                       </span>
                     </div>
+
+                
                   </div>
                   
                   <div className="mt-2 space-y-1">
