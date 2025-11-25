@@ -214,9 +214,17 @@ const TransactionDetail = () => {
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div>
               <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Transaction Details</h1>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                Transaction hash: {transaction.hash}
-              </p>
+              <div className="text-sm text-gray-600 dark:text-gray-400 mt-1 flex items-center gap-2 min-w-0">
+                {/* <span className="flex-shrink-0">Transaction hash:</span> */}
+                {/* <div className="flex-1 min-w-0">
+                  <code
+                    className="block bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded font-mono text-gray-900 dark:text-gray-100 truncate"
+                    title={transaction.hash}
+                  >
+                    {transaction.hash}
+                  </code>
+                </div> */}
+              </div>
             </div>
             <button 
               onClick={handleRefresh}
@@ -238,9 +246,11 @@ const TransactionDetail = () => {
             <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">Transaction Hash</h2>
           </div>
           <div className="flex items-center gap-3 flex-wrap">
-            <code className="text-sm bg-gray-100 dark:bg-gray-900 px-3 py-2 rounded font-mono text-gray-900 dark:text-gray-100 break-all">
-              {transaction.hash}
-            </code>
+            <div className="flex-1 min-w-0">
+              <code className="block text-sm bg-gray-100 dark:bg-gray-900 px-3 py-2 rounded font-mono text-gray-900 dark:text-gray-100 truncate" title={transaction.hash}>
+                {transaction.hash}
+              </code>
+            </div>
             <button
               onClick={() => copyToClipboard(transaction.hash, 'hash')}
               className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"

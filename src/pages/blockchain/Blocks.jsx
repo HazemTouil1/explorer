@@ -148,9 +148,9 @@ const Blocks = () => {
         <div className="card overflow-hidden w-full">
           {/* Table Header */}
           <div className="p-4 border-b border-gray-200 dark:border-gray-800">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <p className="text-gray-900 dark:text-gray-100 font-medium">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div className="min-w-0">
+                <p className="text-gray-900 dark:text-gray-100 font-medium truncate">
                   {loading ? 'Loading blocks...' : 
                    error ? 'Failed to load blocks' : 
                    `More than ${currentBlock.toLocaleString()} blocks found`}
@@ -162,7 +162,7 @@ const Blocks = () => {
                 </p>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap w-full sm:w-auto">
                
 
                 <button onClick={downloadPageData} className="btn-secondary text-sm flex items-center gap-2">
@@ -171,35 +171,35 @@ const Blocks = () => {
                 </button>
 
                 {/* Pagination */}
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-1 flex-wrap">
                   <button
                     disabled={currentPage === 1 || loading}
                     onClick={() => handlePageChange(1)}
-                    className="btn-secondary text-sm flex items-center gap-2 disabled:opacity-50"
+                    className="btn-secondary text-xs sm:text-sm flex items-center gap-2 disabled:opacity-50"
                   >
                     First
                   </button>
                   <button
                     disabled={currentPage === 1 || loading}
                     onClick={() => handlePageChange(currentPage - 1)}
-                    className="btn-secondary text-sm flex items-center gap-2 disabled:opacity-50"
+                    className="btn-secondary text-xs sm:text-sm flex items-center gap-2 disabled:opacity-50"
                   >
                     <ChevronLeft className="w-4 h-4" />
                   </button>
-                  <span className="btn-secondary text-sm flex items-center gap-2">
+                  <span className="btn-secondary text-xs sm:text-sm flex items-center gap-2">
                     Page {currentPage} of {totalPages.toLocaleString()}
                   </span>
                   <button
                     disabled={currentPage === totalPages || loading}
                     onClick={() => handlePageChange(currentPage + 1)}
-                    className="btn-secondary text-sm flex items-center gap-2 disabled:opacity-50"
+                    className="btn-secondary text-xs sm:text-sm flex items-center gap-2 disabled:opacity-50"
                   >
                     <ChevronRight className="w-4 h-4" />
                   </button>
                   <button
                     disabled={currentPage === totalPages || loading}
                     onClick={() => handlePageChange(totalPages)}
-                    className="btn-secondary text-sm flex items-center gap-2 disabled:opacity-50"
+                    className="btn-secondary text-xs sm:text-sm flex items-center gap-2 disabled:opacity-50"
                   >
                     Last
                   </button>

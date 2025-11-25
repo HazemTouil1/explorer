@@ -154,9 +154,9 @@ const NFTTransfers = () => {
         <div className="card overflow-hidden w-full">
           {/* Table Header */}
           <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <p className="text-gray-900 dark:text-gray-100 font-medium">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div className="min-w-0">
+                <p className="text-gray-900 dark:text-gray-100 font-medium truncate">
                   {loading ? 'Loading...' : 
                    error ? 'Failed to load' : 
                    `${nftTransfers.length} NFT transfers found`}
@@ -168,7 +168,7 @@ const NFTTransfers = () => {
                 </p>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap w-full sm:w-auto">
                 {/* Download Button */}
                 <button onClick={downloadPageData} className="btn-secondary text-sm flex items-center gap-2">
                   <Download className="w-4 h-4 text-gray-400" />
@@ -176,10 +176,10 @@ const NFTTransfers = () => {
                 </button>
 
                 {/* Pagination */}
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-1 flex-wrap">
                   <button
                     disabled={currentPage === 1}
-                    className="btn-secondary text-sm flex items-center gap-2"
+                    className="btn-secondary text-xs sm:text-sm flex items-center gap-2"
                     onClick={() => handlePageChange(1)}
                   >
                     First
@@ -187,18 +187,18 @@ const NFTTransfers = () => {
                   <button
                     disabled={currentPage === 1}
                     onClick={() => handlePageChange(currentPage - 1)}
-                    className="btn-secondary text-sm flex items-center gap-2"
+                    className="btn-secondary text-xs sm:text-sm flex items-center gap-2"
                   >
                     <ChevronLeft className="w-4 h-4" />
                     Previous
                   </button>
-                  <span className="px-3 py-1 text-sm text-gray-600 dark:text-gray-400">
+                  <span className="btn-secondary text-xs sm:text-sm flex items-center gap-2">
                     Page {currentPage} of {totalPages}
                   </span>
                   <button
                     disabled={currentPage === totalPages}
                     onClick={() => handlePageChange(currentPage + 1)}
-                    className="btn-secondary text-sm flex items-center gap-2"
+                    className="btn-secondary text-xs sm:text-sm flex items-center gap-2"
                   >
                     Next
                     <ChevronRight className="w-4 h-4" />
@@ -206,7 +206,7 @@ const NFTTransfers = () => {
                   <button
                     disabled={currentPage === totalPages}
                     onClick={() => handlePageChange(totalPages)}
-                    className="btn-secondary text-sm flex items-center gap-2"
+                    className="btn-secondary text-xs sm:text-sm flex items-center gap-2"
                   >
                     Last
                   </button>

@@ -222,9 +222,14 @@ const BlockDetail = () => {
             <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">Block Hash</h2>
           </div>
           <div className="flex items-center gap-3 flex-wrap">
-            <code className="text-sm bg-gray-100 dark:bg-gray-900 px-3 py-2 rounded font-mono text-gray-900 dark:text-gray-100">
-              {block.hash}
-            </code>
+            <div className="flex-1 min-w-0">
+              <code
+                className="block text-sm bg-gray-100 dark:bg-gray-900 px-3 py-2 rounded font-mono text-gray-900 dark:text-gray-100 truncate"
+                title={block.hash}
+              >
+                {block.hash}
+              </code>
+            </div>
             <button
               onClick={() => copyToClipboard(block.hash, 'hash')}
               className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"

@@ -1,12 +1,11 @@
-// Vero Blockchain Service
 const VERO_CONFIG = {
-  RPC_URL: 'https://vero-rpc.publicnode.online',
-  INDEXER_API: 'http://75.119.156.249:3000/api', // الـ Indexer API الخاص بك
-  CHAIN_ID: 808,
-  NETWORK_NAME: 'Vero Chain',
-  COIN_SYMBOL: 'VERO',
-  BLOCK_TIME: 2, // seconds
-  DECIMALS: 18,
+  RPC_URL: import.meta.env.VITE_RPC_URL ,
+  INDEXER_API: import.meta.env.VITE_INDEXER_API ,
+  CHAIN_ID: Number(import.meta.env.VITE_CHAIN_ID) || 808,
+  NETWORK_NAME: import.meta.env.VITE_NETWORK_NAME || 'Vero Chain',
+  COIN_SYMBOL: import.meta.env.VITE_COIN_SYMBOL || 'VERO',
+  BLOCK_TIME: Number(import.meta.env.VITE_BLOCK_TIME) || 2,
+  DECIMALS: Number(import.meta.env.VITE_DECIMALS) || 18,
 };
 
 class VeroService {
@@ -283,8 +282,7 @@ class VeroService {
 
   // Get transactions for an address (محسّن باستخدام الـ Indexer)
   async getAddressTransactions(address, count = 10) {
-    try {
-      // استخدام الـ Indexer API للحصول على معاملات العنوان (أسرع بكثير!)
+    try { 
       const transactions = await this.indexerCall(`/transactions/address/${address}?limit=${count}`);
       
       if (transactions && Array.isArray(transactions)) {

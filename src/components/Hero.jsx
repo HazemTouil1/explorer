@@ -22,7 +22,7 @@ const Hero = () => {
         // سنحاول أولاً كـ Block Hash، وإذا فشل فسنحاول كـ Transaction
         try {
           // جرب كـ Block Hash أولاً
-          const response = await fetch('http://localhost:8545', {
+          const response = await fetch('https://vero-rpc.publicnode.online', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -121,7 +121,7 @@ const Hero = () => {
             <select 
               value={searchType}
               onChange={(e) => setSearchType(e.target.value)}
-              className="text-sm sm:text-base px-2 py-1 sm:px-4 sm:py-2 border-r border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 focus:outline-none bg-transparent"
+              className="flex-shrink-0 text-sm sm:text-base px-2 py-1 sm:px-4 sm:py-2 border-r border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 focus:outline-none bg-transparent"
             >
               <option value="all" className="bg-white dark:bg-gray-900">All Filters</option>
               <option value="address" className="bg-white dark:bg-gray-900">Addresses</option>
@@ -138,20 +138,20 @@ const Hero = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder={getPlaceholder()}
-              className="flex-1 px-2 sm:px-4 py-2 focus:outline-none text-sm sm:text-base text-gray-700 dark:text-gray-300 bg-transparent placeholder:text-gray-400 dark:placeholder:text-gray-500"
+              className="min-w-0 flex-1 px-2 sm:px-4 py-2 focus:outline-none text-sm sm:text-base text-gray-700 dark:text-gray-300 bg-transparent placeholder:text-gray-400 dark:placeholder:text-gray-500"
             />
             
             <button 
               onClick={handleSearch}
-              className="bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white px-3 sm:px-6 py-1 sm:py-2 rounded-md transition-colors text-sm sm:text-base"
+              className="flex-shrink-0 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white px-3 sm:px-6 py-1 sm:py-2 rounded-md transition-colors text-sm sm:text-base"
             >
               <Search className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
-          
           <p className="text-gray-400 dark:text-gray-500 text-sm mt-4">
             Sponsored: Build on Vero Blockchain Testnet with industry-leading tools
           </p>
+        
         </div>
       </div>
     </section>
